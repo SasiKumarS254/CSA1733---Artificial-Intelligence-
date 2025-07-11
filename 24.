@@ -1,0 +1,8 @@
+disease_diet(diabetes, 'Low sugar, high fiber, complex carbs').
+disease_diet(hypertension, 'Low salt, more fruits and vegetables').
+disease_diet(anemia, 'Iron-rich foods like spinach, red meat, beans').
+disease_diet(obesity, 'Low fat, high protein, portion control').
+disease_diet(gastritis, 'Soft foods, avoid spicy and acidic items').
+disease_diet(kidney_stone, 'Drink more water, avoid oxalate-rich foods').
+
+disease_diet(diabetes, Diet).

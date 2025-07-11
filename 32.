@@ -1,0 +1,5 @@
+match(Pattern, List) :-
+    append(_, Tail, List),
+    append(Pattern, _, Tail).
+
+ match([b,c], [a,b,c,d]).

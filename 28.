@@ -1,0 +1,25 @@
+disease(flu) :- 
+    has_symptom(fever),
+    has_symptom(cough),
+    has_symptom(body_ache).
+
+disease(cold) :- 
+    has_symptom(cough),
+    has_symptom(sneezing),
+    has_symptom(runny_nose).
+
+disease(malaria) :- 
+    has_symptom(fever),
+    has_symptom(chills),
+    has_symptom(sweating).
+
+disease(typhoid) :- 
+    has_symptom(fever),
+    has_symptom(abdominal_pain),
+    has_symptom(weakness).
+
+has_symptom(S) :-
+    write('Do you have '), write(S), write('? (yes/no): '),
+    read(X), X = yes.
+
+disease(D).

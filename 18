@@ -1,0 +1,6 @@
+name_dob(john, 15, april, 1995).
+name_dob(alice, 7, june, 2000).
+name_dob(ravi, 23, january, 1998).
+name_dob(sita, 1, december, 1999).
+
+ name_dob(alice, D, M, Y).

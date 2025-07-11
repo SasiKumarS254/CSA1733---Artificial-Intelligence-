@@ -1,0 +1,22 @@
+can_get_banana(state(_, _, _, yes)) :-
+    write('Monkey has the banana!'), nl.
+
+can_get_banana(state(M, B, no, no)) :-
+    M \= B,
+    write('Monkey walks from '), write(M), write(' to '), write(B), nl,
+    can_get_banana(state(B, B, no, no)).
+
+can_get_banana(state(P, P, no, no)) :-
+    P \= middle,
+    write('Monkey pushes box from '), write(P), write(' to middle'), nl,
+    can_get_banana(state(middle, middle, no, no)).
+
+can_get_banana(state(middle, middle, no, no)) :-
+    write('Monkey climbs onto the box'), nl,
+    can_get_banana(state(middle, middle, yes, no)).
+
+can_get_banana(state(middle, middle, yes, no)) :-
+    write('Monkey picks the banana'), nl,
+    can_get_banana(state(middle, middle, yes, yes)).
+
+can_get_banana(state(door, window, no, no)).

@@ -1,0 +1,39 @@
+edge(a, b).
+edge(a, c).
+edge(b, d).
+edge(b, e).
+edge(c, f).
+edge(e, g).
+edge(d, g).
+edge(f, g).
+
+h(a, 5).
+h(b, 3).
+h(c, 4).
+h(d, 2).
+h(e, 1).
+h(f, 6).
+h(g, 0).
+
+best_first(Start, Goal, Path) :-
+    bfs([[Start]], Goal, RevPath),
+    reverse(RevPath, Path),
+    write('Best First Search Path: '), write(Path), nl.
+
+bfs([[Goal | Rest] | _], Goal, [Goal | Rest]).
+bfs([[Current | Rest] | Others], Goal, Path) :-
+    findall([Next, Current | Rest],
+        (edge(Current, Next), \+ member(Next, [Current | Rest])),
+        NextPaths),
+    append(Others, NextPaths, AllPaths),
+    sort_paths(AllPaths, Sorted),
+    bfs(Sorted, Goal, Path).
+
+sort_paths(Paths, Sorted) :-
+    map_list_to_pairs(path_heuristic, Paths, Pairs),
+    keysort(Pairs, SortedPairs),
+    pairs_values(SortedPairs, Sorted).
+
+path_heuristic([Head | _], H) :- h(Head, H).
+
+best_first(a, g, Path).

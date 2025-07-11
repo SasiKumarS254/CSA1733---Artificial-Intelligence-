@@ -1,0 +1,23 @@
+:- dynamic fact/1.
+
+fact(a).
+fact(b).
+
+rule(c) :- fact(a), fact(b).
+rule(d) :- fact(c).
+
+forward_chain :-
+    derive_new_facts,
+    list_all_facts.
+
+derive_new_facts :-
+    (rule(X), \+ fact(X) ->
+        assertz(fact(X)),
+        derive_new_facts
+    ; true).
+
+list_all_facts :-
+    write('Derived facts:'), nl,
+    forall(fact(F), (write('- '), write(F), nl)).
+
+forward_chain.

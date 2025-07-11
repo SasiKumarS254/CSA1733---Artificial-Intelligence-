@@ -1,0 +1,11 @@
+planet(mercury, 1, 4879, 0, terrestrial).
+planet(venus,   2, 12104, 0, terrestrial).
+planet(earth,   3, 12756, 1, terrestrial).
+planet(mars,    4, 6792, 2, terrestrial).
+planet(jupiter, 5, 142984, 79, gas_giant).
+planet(saturn,  6, 120536, 83, gas_giant).
+planet(uranus,  7, 51118, 27, ice_giant).
+planet(neptune, 8, 49528, 14, ice_giant).
+
+
+planet(earth, _, Diameter, _, _).

@@ -1,0 +1,7 @@
+known(a).
+known(b).
+
+goal(c) :- known(a), known(b).
+goal(d) :- goal(c).
+
+goal(d).
